@@ -56,7 +56,7 @@ x3 = -10:0.05:10; %Defino los puntos a ser evaluados por la funcion como se indi
 c = 6 * exp(x3+18);
 figure4=figure;
 plot(x3,c,'g+');
-title('Función 6*exp(x+18)en Escala normal');
+title('Función 6*exp(x+18) en Escala normal');
 ylabel('Funcion c(x)');
 xlabel('x');
 grid on;
