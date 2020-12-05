@@ -34,6 +34,7 @@ title("Función de transferencia 1: Lazo Abierto");
 grid on;
 
 
+
 %Utilizando la función 'feedback' se calcula el lazo cerrado
 %Se coloca 1 como H2 porque el feedback entre dos funciones debe ser el
 %mismo que si fuera solo una función (el cual es este caso).
@@ -52,13 +53,27 @@ step(s1_cerrado);
 title("Función de transferencia 1: Lazo Cerrado");
 grid on
 
+
+
 % Grafico de polos y zeros lazo abierto y cerrado
 figure(5)
-title("Zeros y polos de función de transferencia 1");
 pzmap(s1,"b", s1_cerrado,"r")
+title("Ceros y polos de función de transferencia 1");
 legend("abierto", "cerrado")
 grid on;
 
+fprintf('Restulados funcion 1\n\n')
+fprintf('Lazo abierto\n')
+fprintf('Ganancia estatica: %d\n', s1_k)
+fprintf('Tiempo de estabilizacion: %d\n', s1_estab.SettlingTime)
+fprintf('Ceros: %d\n', s1_z{1})
+fprintf('Polos: %d\n', s1_p{1})
+
+fprintf('\nLazo cerrado\n')
+fprintf('Ganancia estatica: %d\n', s1_cerrado_k)
+fprintf('Tiempo de estabilizacion: %d\n', s1_cerrado_estab.SettlingTime)
+fprintf('Ceros: %d\n', s1_cerrado_z{1})
+fprintf('Polos: %d\n', s1_cerrado_p{1})
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Funcion 2 %%%%%%%%%%%
@@ -103,7 +118,20 @@ grid on
 
 % Grafico de polos y zeros lazo abierto y cerrado
 figure(6)
-title("Zeros y polos de función de transferencia 2");
 pzmap(s2,"b", s2_cerrado,"r")
+title("Ceros y polos de función de transferencia 2");
 legend("abierto", "cerrado")
 grid on;
+
+fprintf('Restulados funcion 2\n\n')
+fprintf('Lazo abierto\n')
+fprintf('Ganancia estatica: %d\n', s2_k)
+fprintf('Tiempo de estabilizacion: %d\n', s2_estab.SettlingTime)
+fprintf('Ceros: %d\n', s2_z{1})
+fprintf('Polos: %d\n', s2_p{1})
+
+fprintf('\nLazo cerrado\n')
+fprintf('Ganancia estatica: %d\n', s2_cerrado_k)
+fprintf('Tiempo de estabilizacion: %d\n', s2_cerrado_estab.SettlingTime)
+fprintf('Ceros: %d\n', s2_cerrado_z{1})
+fprintf('Polos: %d\n', s2_cerrado_p{1})
