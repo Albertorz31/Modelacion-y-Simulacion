@@ -79,7 +79,7 @@ s2 = tf(num2,den2);
 [s2_z, s2_p ,s2_k] = zpkdata(s2);
 
 % Para obtener el tiempo de estabilizacion se utiliza stepinfo()
-s2_estab = stepinfo(s2);
+s2_estab = stepinfo(s2)
 
 %Gráfico de lazo abierto
 figure(3)
@@ -93,7 +93,7 @@ s2_cerrado = feedback(s2,1,-1);
 [s2_cerrado_z, s2_cerrado_p , s2_cerrado_k] = zpkdata(s2_cerrado);
 
 % Para obtener el tiempo de estabilizacion se utiliza stepinfo()
-s2_cerrado_estab = stepinfo(s2_cerrado);
+s2_cerrado_estab = stepinfo(s2_cerrado)
 
 %Gráfico de lazo cerrado
 figure(4);
