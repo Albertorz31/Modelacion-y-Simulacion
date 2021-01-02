@@ -7,10 +7,9 @@ clear,clc
 
 
 
-%-----------------------------------------------------------------------------------%
+
 %En el primer caso tenemos que entregar como resultado las matrices
 %correspondientes al modelo de estado
-%-----------------------------------------------------------------------------------%
 
 %-----------Ingresar por consola los valores a, b,c ,d ,e, f------------
 %Ingresar polinomio
@@ -30,7 +29,7 @@ f = input(val6);
 %Se obtienen las matrices del modelo de estado
 [A,B,C,D]=bam(a,b,c,d,e,f)
 
-%Ahora se obtiene las funciones de transferencia H1 y H2 con las matrices
+%Ahora se obtiene las funciones de transferencia H con las matrices
 %anteriores
 [H]=mab(A,B,C,D)
 
