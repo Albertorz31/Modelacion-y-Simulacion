@@ -9,13 +9,13 @@ clear,clc
 
 %Se tiene que:
 %Fe: Flujo de entrada
-%R1: Resitencia 1
 %h1: Nivel de agua del estanque 1
 %h2: Nivel de agua del estanque 2
 %Fi: Flujo intermedio
 %A1: Area de superficie del estanque 1
 %A2: Area de superficie del estanque 2
-%R2: Resistencia2
+%R1: Resistencia 1
+%R2: Resistencia 2
 %Fs: Flujo de salida
 
 %La variable de entrada es Fe
@@ -39,7 +39,7 @@ R2=0.0625;
 
 %Por lo tanto
 %dV1/dt = Fe - (h1-h2)/R1 => d(h1)/dt = Fe/A1 - (h1-h2)/R1*A1
-%dv2/dt = h1-h2/R1 - h2/R2 0> d(h2)/dt = h1-h2/R1*A2 - h2/R2*A2
+%dv2/dt = h1-h2/R1 - h2/R2 => d(h2)/dt = h1-h2/R1*A2 - h2/R2*A2
 
 
 %Representacion matricial
@@ -56,10 +56,11 @@ B=zeros(2,1);
 C=zeros(2,2);
 D=zeros(2,1);
 %Entonces las matrices de las ecuaciones de estado son:
-A(1,1)= -1/A1*R1;
-A(1,2)= 1/A1*R1;
-A(2,1)= 1/R1*A2;
-A(2,2)= 1/(A2*(R1+R2));
+A(1,1)= -1/(A1*R1);
+A(1,2)= 1/(A1*R1);
+A(2,1)= 1/(R1*A2);
+%A(2,2)= -1/(A2*(R1+R2));
+A(2,2)= -(1/R1+1/R2)*(1/A2);
 B(1,1)= 1/A1;
 B(2,1)= 0;
 C(1,1)=1;
@@ -71,10 +72,12 @@ M=ss(A,B,C,D);
 
 %%%%%%%%%Caso1%%%%%%%%%%%
 %Se grafica cuando se tiene un escalon como entrada
+figure(1)
 step(M) %step grafica respecto a un escalon como entrada
 
 %%%%%%%%%Caso2%%%%%%%%%%%
 %Se grafica cuando se tiene un impulso como entrada
+figure(2)
 impulse(M) %step grafica respecto a un impulso como entrada
 
 %%%%%%%%%Caso3%%%%%%%%%%%
@@ -84,6 +87,7 @@ impulse(M) %step grafica respecto a un impulso como entrada
 t = linspace(0, 12*pi , 5000);
 u = 100* sin(t/4);
 u(u<0) = 0.;
+figure(3)
 lsim(M, u, t); %step grafica respecto a una funcion u(t) como entrada
 
 
