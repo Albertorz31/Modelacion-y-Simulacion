@@ -1,4 +1,3 @@
-
 clear,clc
 
 %-------------------------------------------------------------------------------------%
@@ -12,7 +11,6 @@ clear,clc
 %correspondientes al modelo de estado
 
 %-----------Ingresar por consola los valores a, b,c ,d ,e, f------------
-%Ingresar polinomio
 val1='Ingrese a:';
 a = input(val1);
 val2='Ingrese b:';

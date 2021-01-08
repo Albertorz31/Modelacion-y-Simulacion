@@ -49,12 +49,12 @@ u1(u1<0) = 0.;
 figure(1)
 M1_z = c2d(M,T1,"zoh");
 lsim(M1_z, u1, t1);
-title("Discretizacion con algoritmo zoh con T1");
+title("Discretización con algoritmo zoh con T1");
 
 figure(2)
 M1_f = c2d(M,T1,"foh");
 lsim(M1_f, u1, t1);
-title("Discretizacion con algoritmo foh con T1");
+title("Discretización con algoritmo foh con T1");
 
 
 %La definicion de u(t) para T2 corresponde a:
@@ -65,12 +65,12 @@ u2(u2<0) = 0.;
 figure(3)
 M2_z = c2d(M,T2,"zoh");
 lsim(M2_z, u2, t2);
-title("Discretizacion con algoritmo zoh con T2");
+title("Discretización con algoritmo zoh con T2");
 
 figure(4)
 M2_f = c2d(M,T2,"foh");
 lsim(M2_f, u2 ,t2);
-title("Discretizacion con algoritmo foh con T2");
+title("Discretización con algoritmo foh con T2");
 
 
 %La definicion de u(t) para T3 corresponde a:
@@ -81,9 +81,9 @@ u3(u3<0) = 0.;
 figure(5)
 M3_z = c2d(M,T3,"zoh");
 lsim(M3_z, u3, t3);
-title("Discretizacion con algoritmo zoh con T3");
+title("Discretización con algoritmo zoh con T3");
 
 figure(6)
 M3_f = c2d(M,T3,"foh");
 lsim(M3_f, u3, t3);
-title("Discretizacion con algoritmo foh con T3");
+title("Discretización con algoritmo foh con T3");

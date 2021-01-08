@@ -45,7 +45,7 @@ R2=0.0625;
 %Representacion matricial
 %considerando: X' = AX + BU, se tiene entonces:
 %d(h1)/dt = (-1/A1*R1)*X1 + (1/A1*R1)*X2 + (1/A1)*u
-%d(h2)/dt = (1/R1*A2)*X1 - (1/(A2*(R1+R2)))X2 + 0*u
+%d(h2)/dt = (1/R1*A2)*X1 - -(1/R1+1/R2)*(1/A2)X2 + 0*u
 
 %Para el modelo de salida se sabe que y1=h1; y2=h2
 %Y = CX +DU
@@ -59,7 +59,6 @@ D=zeros(2,1);
 A(1,1)= -1/(A1*R1);
 A(1,2)= 1/(A1*R1);
 A(2,1)= 1/(R1*A2);
-%A(2,2)= -1/(A2*(R1+R2));
 A(2,2)= -(1/R1+1/R2)*(1/A2);
 B(1,1)= 1/A1;
 B(2,1)= 0;
